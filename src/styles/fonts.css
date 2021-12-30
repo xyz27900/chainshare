@@ -1,0 +1,72 @@
+:root {
+	--large-title-font-size: 33px;
+	--large-title-line-height: 40px;
+	--title-1-font-size: 27px;
+	--title-1-line-height: 33px;
+	--title-2-font-size: 21px;
+	--title-2-line-height: 26px;
+	--title-3-font-size: 19px;
+	--title-3-line-height: 24px;
+	--headline-font-size: 16px;
+	--headline-line-height: 22px;
+	--subhead-font-size: 16px;
+	--subhead-line-height: 22px;
+	--body-font-size: 14px;
+	--body-line-height: 20px;
+	--footnote-font-size: 12px;
+	--footnote-line-height: 16px;
+	--caption-1-font-size: 11px;
+	--caption-1-line-height: 13px;
+	--caption-2-font-size: 11px;
+	--caption-2-line-height: 13px;
+}
+
+.font-large-title {
+	font-size: var(--large-title-font-size);
+	line-height: var(--large-title-line-height);
+}
+
+.font-title-1 {
+	font-size: var(--title-1-font-size);
+	line-height: var(--title-1-line-height);
+}
+
+.font-title-2 {
+	font-size: var(--title-2-font-size);
+	line-height: var(--title-2-line-height);
+}
+
+.font-title-3 {
+	font-size: var(--title-3-font-size);
+	line-height: var(--title-3-line-height);
+}
+
+.font-headline {
+	font-size: var(--headline-font-size);
+	line-height: var(--headline-line-height);
+}
+
+.font-subhead {
+	font-size: var(--subhead-font-size);
+	line-height: var(--subhead-line-height);
+}
+
+.font-body {
+	font-size: var(--body-font-size);
+	line-height: var(--body-line-height);
+}
+
+.font-footnote {
+	font-size: var(--footnote-font-size);
+	line-height: var(--footnote-line-height);
+}
+
+.font-caption-1 {
+	font-size: var(--caption-1-font-size);
+	line-height: var(--caption-1-line-height);
+}
+
+.font-caption-2 {
+	font-size: var(--caption-2-font-size);
+	line-height: var(--caption-2-line-height);
+}

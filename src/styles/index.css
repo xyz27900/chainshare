@@ -1,0 +1,32 @@
+@import '@/styles/colors.css';
+@import '@/styles/fonts.css';
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none !important;
+}
+
+:root {
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    color: var(--color-label-primary);
+    background-color: var(--color-background);
+    font-weight: 300;
+}

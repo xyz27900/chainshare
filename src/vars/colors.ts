@@ -1,0 +1,16 @@
+export const colors = {
+  background: '#f9f9f9',
+  labelPrimary: '#101010',
+  labelSecondary: 'rgba(60, 60, 67, 0.6)',
+  separator: '#e5e5ea',
+  black: '#000000',
+  white: '#ffffff',
+  red: '#ff3b30',
+  orange: '#ff9500',
+  yellow: '#ffcc00',
+  green: '#34c759',
+  blue: '#007aff',
+  gray: '#8e8e93',
+  gray2: '#aeaeb2',
+  gray6: '#f2f2f7',
+} as const;

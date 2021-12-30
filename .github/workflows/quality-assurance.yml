@@ -1,0 +1,83 @@
+name: quality-assurance
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:sol
+
+      - name: Test
+        run: npm run test:sol
+        env:
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+
+      - name: Build
+        run: npm run build:sol
+        env:
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: contract_artifacts
+          path: |
+            ./artifacts
+            ./.env
+
+  web:
+    runs-on: ubuntu-latest
+    needs: contract
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: contract_artifacts
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:web
+
+      - name: Build
+        run: npm run build:web -- --base ${{ github.event.repository.name }}
